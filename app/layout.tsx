@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
-
+import { Header } from "@/components/header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,8 +23,13 @@ export default function RootLayout({
         enableSystem
         disableTransitionOnChange
       >
-        <ThemeToggle />
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <Header />
+          <main className="p-4 flex flex-col">
+            {children}
+
+          </main>
+        </body>
       </ThemeProvider>
     </html>
   );
